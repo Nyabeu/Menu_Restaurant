@@ -1,0 +1,81 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h2 class="text-center mt-3">Contactez-nous</h2>
+    <form action="contactTraitement.php" method="post">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="nom" class="control-label">Nom</label>
+          <input type="text" name="lastName" class="form-control" id="nom">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="prenom" class="control-label">Prénom</label>
+          <input type="text" name="firstName" class="form-control" id="prenom">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="email" class="control-label">Email</label>
+          <input type="email" name="email" id="email" class="form-control" id="email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="telephone" class="control-label">Téléphone</label>
+          <input type="text" name="phone" class="form-control"  maxlength="15" id="telephone" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="adresse" class="control-label">Adresse</label>
+        <input type="text" name="address" class="form-control" id="adresse">
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-5">
+          <label for="ville" class="control-label">Ville</label>
+          <input type="text" name="city" class="form-control" id="ville">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="pays" class="control-label">Pays</label>
+          <select type="text" name="country" class="form-control" id="pays">
+            <option value="angleterre">Angleterre</option>
+            <option value="angola">Angola</option>
+            <option value="belgique">Belgique</option>
+            <option value="bresil">Bresil</option>
+            <option value="cameroun">Cameroun</option>
+            <option value="canada">Canada</option>
+            <option value="danemark">Danemark</option>
+            <option value="espagne">Espagne</option>
+            <option value="etat-unis">Etats-unis</option>
+            <option value="france" selected>France</option>
+            <option value="finlande">Finlande</option>
+            <option value="gabon">Gabon</option>
+            <option value="ghana">Ghana</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="codePostal" class="control-label">Code Postal</label>
+          <input type="text" name="postalCode" class="form-control" id="codePostal">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <textarea class="form-control" rows="5" name="message"></textarea>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">Accepter les conditions de confidencialités</label>
+        </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary pull-right" name="submitEn" value="Envoyer" >
+
+    </form>
+
+</div>
+{% endblock %}
