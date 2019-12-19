@@ -2,8 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content=" Oriane NJILIE">
+        <meta name="description" content="Mini restaurant de Oriane en ligne">
+
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link rel="shortcut icon" href="{{ asset('images/iconOriane.ico') }}" type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>

@@ -5,6 +5,21 @@
 {% block body %}
 <div class="container">
   <h1>Liste Menus</h1>
+  <div class="row flex">
+    {%for menu in menus%}
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="#">{{ menu.name }}</a>
+            </h5>
+            <p class="card-text">{{ menu.title }} <br> {{ menu.description}}</p>
+            <p class="text-primary" style="font-weight: bold; font-size: 2rem">{{ menu.price }} €</p>
+          </div>
+        </div>
+      </div>
+    {%endfor%}
+  </div>
 </div>
 
 {% endblock %}

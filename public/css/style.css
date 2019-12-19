@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  justify-content: space-around;
+}
+.blockPictureTaro, .blockPicturePoisson{
+  display: flex;;
+  flex-direction: column;
+  margin:20px 20px 0 0;
+}
+.blockPicturePoulet{
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 20px 20px 0 0;
+}

@@ -36,6 +36,14 @@ class Menu
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    public function __construct(){
+        $this->created_at = new \DateTime();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +93,24 @@ class Menu
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getFormattedPrice() : string
+    {
+        return number_format($this->price, 0, '', ' ');
+
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }

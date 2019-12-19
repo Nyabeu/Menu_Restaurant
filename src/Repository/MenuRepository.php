@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Menu;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Menu|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,6 +20,35 @@ class MenuRepository extends ServiceEntityRepository
         parent::__construct($registry, Menu::class);
     }
 
+    /**
+    * @return Menu[]
+    */
+    public function findAllVisible() : array
+    {
+        return $this->findVisibleQuery()
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+
+     /**
+    * @return Menu[]
+    */
+    public function findLatest() : array
+    {
+        return $this->findVisibleQuery()
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+     private  function findVisibleQuery() : QueryBuilder
+     {
+         return $this->createQueryBuilder('m')
+            ->where('m.price = 20');
+     }
     // /**
     //  * @return Menu[] Returns an array of Menu objects
     //  */

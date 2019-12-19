@@ -17,6 +17,9 @@ class HomeController extends AbstractController
 
   public function index() : Response
   {
-    return $this->render("home/index.html.twig");
+    $tab = [1,2,'toto',52];
+    return $this->render("home/index.html.twig",[
+     'tableau' => $tab
+   ]);
   }
 }
