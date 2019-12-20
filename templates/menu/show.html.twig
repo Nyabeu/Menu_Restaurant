@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ menu.name }}{% endblock %}
+
+{% block body %}
+  <div class="jumbotron" style="padding: 5px;">
+    <div class="container">
+        <div class="row">
+          <div class="col-7">
+
+          </div>
+          <div class="col-5">
+            <h1>{{ menu.name }}</h1>
+            <h2>{{ menu.title }}</h2>
+            <p class="text-primary" style="font-weight: bold; font-size: 2rem">{{ menu.price }} €</p>
+            <p><a href="#" class="btn btn-danger">Contact Nous</a></p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <p> {{ menu.description | nl2br }}</p>
+    <div class="row">
+      <div class="col-md-7">
+        <h2>Caractéristiques</h2>
+        <table class="table table-striped">
+          <tr>
+            <td>toto</td>
+            <td>{{menu.name}}</td>
+          </tr>
+          <tr>
+            <td>toto</td>
+            <td>{{menu.name}}</td>
+          </tr>
+          <tr>
+            <td>toto</td>
+            <td>{{menu.name}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-5">
+        <h2>Spécificités</h2>
+      </div>
+    </div>
+  </div>
+{% endblock %}

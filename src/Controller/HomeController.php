@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\MenuRepository;
+use App\Entity\Menu;
 /**
  *
  */
@@ -12,14 +14,15 @@ class HomeController extends AbstractController
 {
   /**
   * @Route("/", name="home_page")
+  * @param MenuRepository $repository
   * @return Response
   */
 
-  public function index() : Response
+  public function index(MenuRepository $repository) : Response
   {
-    $tab = [1,2,'toto',52];
+    $menus = $repository->findLatest();
     return $this->render("home/index.html.twig",[
-     'tableau' => $tab
+     'menus' => $menus
    ]);
   }
 }

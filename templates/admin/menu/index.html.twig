@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gerer les menus{% endblock %}
+
+{% block body %}
+  <div class="container mt-3">
+    <h1>Gestion des menus</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for menu in menus %}
+          <tr>
+            <td>{{ menu.name }}</td>
+            <td><a href="{{ path('admin.menu.edit', {id: menu.id}) }}" class="btn btn-secondary">Editer</a></td>
+          </tr>
+
+        {% endfor %}
+      <tbody>
+    </table>
+  </div>
+
+
+{% endblock %}
