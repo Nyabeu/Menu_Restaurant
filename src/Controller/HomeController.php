@@ -7,9 +7,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\MenuRepository;
 use App\Entity\Menu;
-/**
- *
- */
+
+
+
 class HomeController extends AbstractController
 {
   /**
@@ -21,7 +21,7 @@ class HomeController extends AbstractController
   public function index(MenuRepository $repository) : Response
   {
     $menus = $repository->findLatest();
-    return $this->render("home/index.html.twig",[
+    return $this->render("home/home.html.twig",[
      'menus' => $menus
    ]);
   }

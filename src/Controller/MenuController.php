@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Menu;
 use App\Repository\MenuRepository;
-/*use Doctrine\Common\Persistence\ObjectManager;
+
 
 /**
  *
@@ -20,29 +20,13 @@ class MenuController extends AbstractController
   */
   private $repository;
 
-  /**
-  * @var  ObjectManager
-  */
-  private $em;
+
 
   public function __construct(MenuRepository $repository){
     $this->repository = $repository;
-    /*$this->em = $em;*/
   }
 
-  /**
-  * @Route("/menu", name="menu.index")
-  * @param MenuRepository $repository
-  * @return Response
-  */
 
-  public function index(MenuRepository $repository) : Response
-  {
-
-    return $this->render("menu/index.html.twig", [
-      "current_menu" => "menus"
-    ]);
-  }
 
   /**
   * @Route("/menu/{slug}-{id}", name="menu.show", requirements={"slug" : "[a-z0-9\-]*"})

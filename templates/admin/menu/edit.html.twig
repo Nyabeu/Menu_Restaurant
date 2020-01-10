@@ -1,10 +1,15 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }}{% endblock %}
+{% block title %}Edit Menu{% endblock %}
 
 {% block body %}
-<div class="container">
-  <h1>Editer un menu</h1>
-</div>
+    <div class="container mt-4">
+        <h2 class="text-center text-success" style="text-shadow: 5px 5px 5px pink">Editer le Menu</h2>
 
+        <div class="mt-4">{{ include('admin/menu/_form.html.twig', {'button_label': 'Editer'}) }}</div>
+
+        <div class="row">
+            <a href="{{ path('admin.menu.index') }}" class="btn btn-primary mr-4">Retour à la liste</a>
+        </div>
+    </div>
 {% endblock %}

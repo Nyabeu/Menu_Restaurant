@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MenuRepository")
+ * @UniqueEntity("name")
  */
 class Menu
 {
@@ -19,21 +22,21 @@ class Menu
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(min=10, max="500")
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $price;
 
@@ -41,6 +44,11 @@ class Menu
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $brochureMenu;
 
     public function __construct(){
         $this->created_at = new \DateTime();
@@ -58,18 +66,6 @@ class Menu
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
 
         return $this;
     }
@@ -117,6 +113,18 @@ class Menu
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getBrochureMenu(): ?string
+    {
+        return $this->brochureMenu;
+    }
+
+    public function setBrochureMenu(string $brochureMenu): self
+    {
+        $this->brochureMenu = $brochureMenu;
 
         return $this;
     }

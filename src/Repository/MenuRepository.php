@@ -47,7 +47,7 @@ class MenuRepository extends ServiceEntityRepository
      private  function findVisibleQuery() : QueryBuilder
      {
          return $this->createQueryBuilder('m')
-            ->where('m.price = 20');
+            ->where('m.price <= 20');
      }
     // /**
     //  * @return Menu[] Returns an array of Menu objects
