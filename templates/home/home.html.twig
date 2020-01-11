@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Restaurant Afro{% endblock %}
+{% block title %}Restaurant{% endblock %}
 
 {% block body %}
 <div class="container mt-3">
@@ -9,7 +9,7 @@
     {% for menu in menus %}
       <div class="card" style="width: 18rem;">
         <a href="{{ path('menu.show', {id: menu.id, slug: menu.slug}) }}" style="text-decoration:none;">
-            <img src="{{ asset('images/'~ menu.brochureMenu)}}" class="card-img-top" alt="Photo du menu">
+            <img src="{{ asset('images/'~ menu.brochureMenu)}}" class="card-img-top" alt="Photo du menu" style="height: 15rem;">
             <div class="card-body">
               <h4 class="card-title">
                 {{ menu.name }}
